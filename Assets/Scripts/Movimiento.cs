@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Movimiento : MonoBehaviour {
 
+    public int numPlayer = 1;
     public float velocidad;
     bool trabajolavadora = false;    
     public Image tarealavadora;     
@@ -26,8 +27,8 @@ public class Movimiento : MonoBehaviour {
 
         
         
-            transform.Translate(Vector2.right * Input.GetAxis("Horizontal") * velocidad * Time.deltaTime);
-            transform.Translate(Vector2.up * Input.GetAxis("Vertical") * velocidad * Time.deltaTime);
+            transform.Translate(Vector2.right * Input.GetAxis("Horizontal" + numPlayer) * velocidad * Time.deltaTime);
+            transform.Translate(Vector2.up * Input.GetAxis("Vertical" + numPlayer) * velocidad * Time.deltaTime);
 
         if (transform.position.x < -8.37)
         {
