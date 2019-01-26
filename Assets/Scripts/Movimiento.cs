@@ -71,7 +71,7 @@ public class Movimiento : MonoBehaviour {
                 objetoSujetado = null;
                
             }
-            if (objetoColisionado != null && objetoColisionado.tag=="objetocogible" && Input.GetAxis("Horizontal") < 0)
+            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && Input.GetAxis("Horizontal") < 0)
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
