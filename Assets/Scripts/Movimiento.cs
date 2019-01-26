@@ -42,27 +42,40 @@ public class Movimiento : MonoBehaviour {
             transform.position = (new Vector2(transform.position.x, -4.8f));
         }
 
-        if (trabajolavadora == true)
+        if (Input.GetAxis("Horizontal") > 0)
         {
+            transform.localScale = new Vector3(-0.5011851f, 1.262527f, 1f);
+        }
+
+
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            transform.localScale = new Vector3(0.5011851f, 1.262527f, 1f);
+        }
+
+        if (trabajolavadora == true)
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 actividadlavadora = actividadlavadora + 0.01f;
                 tarealavadora.fillAmount = actividadlavadora;
             }
-        }
+    
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (this.GetComponentInChildren<ObjetoLlevable>() != null)
             {
+                objetoSujetado.transform.position = new Vector3(objetoSujetado.transform.position.x, objetoSujetado.transform.position.y, 0f);
                 objetoSujetado.transform.parent = null;
                 objetoSujetado = null;
+               
             }
             else if (objetoColisionado != null && objetoColisionado.tag=="objetocogible")
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
-                objetoSujetado.transform.position = transform.position;
+                objetoSujetado.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.5f, - 1);
             }
         }
     }
