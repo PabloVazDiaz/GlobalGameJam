@@ -22,24 +22,24 @@ public class Movimiento : MonoBehaviour {
         transform.Translate(Vector2.right * Input.GetAxis("Horizontal") * velocidad * Time.deltaTime);
         transform.Translate(Vector2.up * Input.GetAxis("Vertical") * velocidad * Time.deltaTime);
 
-        if (transform.position.x < -8.37)
+        if (transform.position.x < -7.312342f)
         {
-            transform.position = (new Vector2(-8.37f, transform.position.y));
+            transform.position = (new Vector3(-7.312342f, transform.position.y,-0.5f));
         }
 
-        if (transform.position.x > 8.37)
+        if (transform.position.x > 7.312342f)
         {
-            transform.position = (new Vector2(8.37f, transform.position.y));
+            transform.position = (new Vector3(7.312342f, transform.position.y,-0.5f));
         }
 
-        if (transform.position.y > 4.1)
+        if (transform.position.y > 3.422362f)
         {
-            transform.position = (new Vector2(transform.position.x, 4.1f));
+            transform.position = (new Vector3(transform.position.x, 3.422362f, -0.5f));
         }
 
-        if (transform.position.y < -4.8)
+        if (transform.position.y < -3.535445f)
         {
-            transform.position = (new Vector2(transform.position.x, -4.8f));
+            transform.position = (new Vector2(transform.position.x, -3.535445f));
         }
 
         if (Input.GetAxis("Horizontal") > 0)
@@ -71,11 +71,17 @@ public class Movimiento : MonoBehaviour {
                 objetoSujetado = null;
                
             }
-            else if (objetoColisionado != null && objetoColisionado.tag=="objetocogible")
+            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && Input.GetAxis("Horizontal") < 0)
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
                 objetoSujetado.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.5f, - 1);
+            }
+            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && Input.GetAxis("Horizontal") > 0)
+            {
+                objetoSujetado = objetoColisionado;
+                objetoSujetado.transform.parent = transform;
+                objetoSujetado.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y - 0.5f, -1);
             }
         }
     }
