@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - pared
-  - nevera
   - cocina
   - lavadora
+  - objetocogible
   layers:
   - Default
   - TransparentFX

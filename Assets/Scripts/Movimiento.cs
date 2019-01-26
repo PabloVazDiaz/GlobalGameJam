@@ -9,9 +9,12 @@ public class Movimiento : MonoBehaviour {
     bool trabajolavadora = false;    
     public Image tarealavadora;     
     float actividadlavadora = 0;
-    
-
-    
+    private  GameObject objetoColisionado;
+    private GameObject objetoSujetado;
+    public GameObject personaje;
+    bool sujetar = false;
+    bool hijo = false;
+    public float contador;
 
 	// Use this for initialization
 	void Start () {
@@ -20,14 +23,9 @@ public class Movimiento : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
         
-
-
-        
-        
-            transform.Translate(Vector2.right * Input.GetAxis("Horizontal") * velocidad * Time.deltaTime);
-            transform.Translate(Vector2.up * Input.GetAxis("Vertical") * velocidad * Time.deltaTime);
+        transform.Translate(Vector2.right * Input.GetAxis("Horizontal") * velocidad * Time.deltaTime);
+        transform.Translate(Vector2.up * Input.GetAxis("Vertical") * velocidad * Time.deltaTime);
 
         if (transform.position.x < -8.37)
         {
@@ -51,29 +49,37 @@ public class Movimiento : MonoBehaviour {
 
         if (trabajolavadora == true)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 actividadlavadora = actividadlavadora + 0.01f;
                 tarealavadora.fillAmount = actividadlavadora;
             }
         }
 
-       
-
-
-    }
-
-    private void OnTriggerStay2D(Collider2D col)
-    {
-
-        if (col.tag == "lavadora")
+        if (Input.GetKeyDown(KeyCode.Space)  )
         {
-            trabajolavadora = true;
-            tarealavadora.fillAmount = actividadlavadora;
+            if (this.GetComponentInChildren<ObjetoLlevable>() != null)
+            {
+                objetoSujetado.transform.parent = null;
+                objetoSujetado = null;
+            }
+            else if(objetoColisionado != null)
+            {
+                objetoSujetado = objetoColisionado;
+                objetoSujetado.transform.parent = transform;
+                objetoSujetado.transform.position = transform.position;
+            }
         }
-
-        
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        objetoColisionado = collision.gameObject;
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        objetoColisionado = null;
+    }
+    
 }
