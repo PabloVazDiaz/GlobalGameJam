@@ -9,12 +9,15 @@ public class PuestoTransformacion : Puesto
     public int transTarget;
     public Image barra;
     public int EntreEventosTiempo;
+    public bool automatico;
 
     private float UltimoTiempo;
     private ObjetoLlevable go;
 
     private GameObject objetoTareaTransformado;
     private float power;
+    public float cantidadPorClick;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,23 +27,27 @@ public class PuestoTransformacion : Puesto
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - UltimoTiempo > EntreEventosTiempo && activado)
+        if (automatico && activado)
+        {
+            barra.fillAmount +=  Time.deltaTime / EntreEventosTiempo ;
+        }
+        if (Time.time - UltimoTiempo > EntreEventosTiempo && activado && automatico)
         {
             activado = false;
             go.gameObject.SetActive(true);
             go = null;
         }
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player"  &&  !activado);
+        if (collision.tag == "Player" && !activado) 
         {
 
-            if(Input.GetKeyDown(KeyCode.Comma))
+            if (Input.GetKeyDown(KeyCode.Comma))
             {
-                if (!activado)
-                {
+                
                     go = collision.gameObject.GetComponentInChildren<ObjetoLlevable>();
                     if (go.transformaciones == transTarget)
                     {
@@ -52,12 +59,27 @@ public class PuestoTransformacion : Puesto
                     {
                         go = null;
                     }
-                    
+
+                
+            }
+
+        }
+        if(collision.tag == "Player" && activado && !automatico)
+        {
+            //if (Input.GetKey($"Fire{numPlayer}"))
+            if(Input.GetButtonDown("Fire1"))
+            {
+                barra.fillAmount += cantidadPorClick;
+                if (barra.fillAmount >= 1)
+                {
+                    activado = false;
+                    go.gameObject.SetActive(true);
+                    go = null;
+                    barra.fillAmount = 0;
                 }
             }
-            
-  
         }
+	    
     }
 
     public void RecibirObjeto( ObjetoLlevable objLlevable)

@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 5253361938311545571}
   - component: {fileID: 1769246097010122592}
   m_Layer: 0
-  m_Name: lavadora
+  m_Name: Armario
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
