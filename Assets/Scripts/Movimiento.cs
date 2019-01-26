@@ -7,22 +7,19 @@ public class Movimiento : MonoBehaviour {
 
     public int numPlayer = 1;
     public float velocidad;
-    bool trabajolavadora = false;    
-    public Image tarealavadora;     
+
+    bool trabajolavadora = false;
+    public Image tarealavadora;
     float actividadlavadora = 0;
-    
+    private GameObject objetoColisionado;
+    private GameObject objetoSujetado;
+    public GameObject personaje;
+    bool sujetar = false;
+    bool hijo = false;
+    public float contador;
+    void Update()
+    {
 
-    
-
-	// Use this for initialization
-	void Start () {
-        
-    }
-	
-	// Update is called once per frame
-	void Update () {
-
-        
 
 
         
@@ -50,31 +47,55 @@ public class Movimiento : MonoBehaviour {
             transform.position = (new Vector2(transform.position.x, -4.8f));
         }
 
-        if (trabajolavadora == true)
+        if (Input.GetAxis("Horizontal") > 0)
         {
-            if (Input.GetKey(KeyCode.Space))
+            transform.localScale = new Vector3(-0.5011851f, 1.262527f, 1f);
+        }
+
+
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            transform.localScale = new Vector3(0.5011851f, 1.262527f, 1f);
+        }
+
+        if (trabajolavadora == true)
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 actividadlavadora = actividadlavadora + 0.01f;
                 tarealavadora.fillAmount = actividadlavadora;
             }
-        }
+    
 
-       
-
-
-    }
-
-    private void OnTriggerStay2D(Collider2D col)
-    {
-
-        if (col.tag == "lavadora")
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            trabajolavadora = true;
-            tarealavadora.fillAmount = actividadlavadora;
+            if (this.GetComponentInChildren<ObjetoLlevable>() != null)
+            {
+                objetoSujetado.transform.position = new Vector3(objetoSujetado.transform.position.x, objetoSujetado.transform.position.y, 0f);
+                objetoSujetado.transform.parent = null;
+                objetoSujetado = null;
+               
+            }
+            else if (objetoColisionado != null && objetoColisionado.tag=="objetocogible")
+            {
+                objetoSujetado = objetoColisionado;
+                objetoSujetado.transform.parent = transform;
+                objetoSujetado.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.5f, - 1);
+            }
         }
-
-        
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        objetoColisionado = collision.gameObject;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        objetoColisionado = null;
+    }
 
 }
+
+  
+    
