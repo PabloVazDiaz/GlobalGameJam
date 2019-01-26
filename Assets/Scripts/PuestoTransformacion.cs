@@ -5,6 +5,7 @@ using UnityEngine;
 public class PuestoTransformacion : Puesto
 {
     public float maxPower;
+    public int transTarget;
 
     private GameObject objetoTareaTransformado;
     private float power;
@@ -22,13 +23,17 @@ public class PuestoTransformacion : Puesto
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /* if(collision.tag=="Player"&& (collision as Player).objetollevado.completado)
-         {
-             RecibirObjeto();
-         }
-         */
+        if (collision.tag == "Player" && (collision.gameObject.GetComponentInChildren<ObjetoLlevable>()).transformaciones==transTarget)
+        {
+            
+            ObjetoLlevable go = collision.gameObject.GetComponentInChildren<ObjetoLlevable>();
+            RecibirObjeto(go);
+        }
     }
 
+    public void RecibirObjeto( ObjetoLlevable objLlevable)
+    {
+        objLlevable.Transformar();
+    }
 
-    
 }

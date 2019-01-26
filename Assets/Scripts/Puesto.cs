@@ -40,15 +40,15 @@ public class Puesto : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       /* if(collision.tag=="Player"&& (collision as Player).objetollevado.completado)
+        if(collision.tag=="Player"&& (collision.gameObject.GetComponentInChildren<ObjetoLlevable>()).completado)
         {
             RecibirObjeto();
         }
-        */
+        
     }
 
 
-    public void RecibirObjeto()
+    virtual public void RecibirObjeto()
     {
         realizados++;
         CompletarTarea();
