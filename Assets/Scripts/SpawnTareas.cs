@@ -23,7 +23,7 @@ public class SpawnTareas : MonoBehaviour
         {
             if(puestos.Where(x => x.activado == false).Any())
             {
-                puestos.Where(x => x.activado == false).ToList()[Random.Range(0, puestos.Where(x => x.activado == false).ToList().Count)].EmpezarTarea();
+                puestos.Where(x => x.activado == false).ToList()[Random.Range(0, puestos.Where(x => x.activado == false).ToList().Count)].SoltarObjetos();
                 UltimoTiempo = Time.time;
             }
             

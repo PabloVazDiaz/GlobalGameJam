@@ -27,7 +27,7 @@ public class Puesto : MonoBehaviour
         
     }
 
-    public void EmpezarTarea()
+    public void SoltarObjetos()
     {
         for (int i = 0; i < cantidad; i++)
         {
@@ -48,7 +48,7 @@ public class Puesto : MonoBehaviour
     }
 
 
-    private void RecibirObjeto()
+    public void RecibirObjeto()
     {
         realizados++;
         CompletarTarea();
