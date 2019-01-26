@@ -44,8 +44,8 @@ public class Puesto : MonoBehaviour
        
         if (collision.tag == "Player" && activado)
         {
-
-            if (Input.GetKeyDown(KeyCode.Comma))
+            Movimiento mov = collision.gameObject.GetComponent<Movimiento>();
+            if (Input.GetButtonDown("Fire2-p"+ mov.numPlayer))
             {
 
                 go = collision.gameObject.GetComponentInChildren<ObjetoLlevable>();
