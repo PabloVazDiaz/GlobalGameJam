@@ -6,24 +6,19 @@ using UnityEngine.UI;
 public class Movimiento : MonoBehaviour {
 
     public float velocidad;
-    bool trabajolavadora = false;    
-    public Image tarealavadora;     
+
+    bool trabajolavadora = false;
+    public Image tarealavadora;
     float actividadlavadora = 0;
-    private  GameObject objetoColisionado;
+    private GameObject objetoColisionado;
     private GameObject objetoSujetado;
     public GameObject personaje;
     bool sujetar = false;
     bool hijo = false;
     public float contador;
+    void Update()
+    {
 
-	// Use this for initialization
-	void Start () {
-        
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        
         transform.Translate(Vector2.right * Input.GetAxis("Horizontal") * velocidad * Time.deltaTime);
         transform.Translate(Vector2.up * Input.GetAxis("Vertical") * velocidad * Time.deltaTime);
 
@@ -56,14 +51,14 @@ public class Movimiento : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)  )
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (this.GetComponentInChildren<ObjetoLlevable>() != null)
             {
                 objetoSujetado.transform.parent = null;
                 objetoSujetado = null;
             }
-            else if(objetoColisionado != null)
+            else if (objetoColisionado != null)
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
@@ -81,5 +76,8 @@ public class Movimiento : MonoBehaviour {
     {
         objetoColisionado = null;
     }
-    
+
 }
+
+  
+    
