@@ -53,6 +53,7 @@ MonoBehaviour:
   cantidad: 0
   puntosPorFinalizar: 0
   activado: 0
+  realizados: 0
   maxPower: 0
   transTarget: 1
   barra: {fileID: 2199589817909377312}
