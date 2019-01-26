@@ -66,8 +66,7 @@ public class PuestoTransformacion : Puesto
         }
         if(collision.tag == "Player" && activado && !automatico)
         {
-            //if (Input.GetKey($"Fire{numPlayer}"))
-            if(Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown($"Fire1-p1"))
             {
                 barra.fillAmount += cantidadPorClick;
                 if (barra.fillAmount >= 1)
@@ -82,7 +81,7 @@ public class PuestoTransformacion : Puesto
 	    
     }
 
-    public void RecibirObjeto( ObjetoLlevable objLlevable)
+    override public void RecibirObjeto( ObjetoLlevable objLlevable)
     {
         activado = true;
         objLlevable.Transformar();

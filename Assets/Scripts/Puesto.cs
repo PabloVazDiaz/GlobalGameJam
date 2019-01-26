@@ -10,9 +10,10 @@ public class Puesto : MonoBehaviour
     public Collider2D ZonaInteraccion;
     public int cantidad;
     public int puntosPorFinalizar;
+    private ObjetoLlevable go;
 
     public bool activado;
-    private int realizados;
+    public int realizados;
    
 
     // Start is called before the first frame update
@@ -38,18 +39,38 @@ public class Puesto : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag=="Player"&& (collision.gameObject.GetComponentInChildren<ObjetoLlevable>()).completado)
+       
+        if (collision.tag == "Player" && activado)
         {
-            RecibirObjeto();
+
+            if (Input.GetKeyDown(KeyCode.Comma))
+            {
+
+                go = collision.gameObject.GetComponentInChildren<ObjetoLlevable>();
+                if (go.completado)
+                {
+                    go.gameObject.transform.parent = null;
+                    go.gameObject.SetActive(false);
+                    RecibirObjeto(go);
+                }
+                else
+                {
+                    go = null;
+                }
+
+
+            }
+
         }
-        
+
     }
 
 
-    virtual public void RecibirObjeto()
+    virtual public void RecibirObjeto(ObjetoLlevable objLlevable)
     {
+        objLlevable = null;
         realizados++;
         CompletarTarea();
         if (realizados >= cantidad)
