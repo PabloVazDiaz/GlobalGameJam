@@ -72,13 +72,13 @@ public class Movimiento : MonoBehaviour {
                 objetoSujetado = null;
                
             }
-            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && Input.GetAxis("Horizontal-p"+numPlayer) < 0)
+            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && transform.localScale.x > 0)
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
                 objetoSujetado.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.5f, - 1);
             }
-            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && Input.GetAxis("Horizontal-p"+numPlayer) > 0)
+            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && transform.localScale.x < 0)
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
