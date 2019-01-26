@@ -58,7 +58,7 @@ public class Movimiento : MonoBehaviour {
                 objetoSujetado.transform.parent = null;
                 objetoSujetado = null;
             }
-            else if (objetoColisionado != null)
+            else if (objetoColisionado != null && objetoColisionado.tag=="objetocogible")
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
