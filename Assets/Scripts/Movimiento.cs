@@ -7,6 +7,7 @@ public class Movimiento : MonoBehaviour {
 
     public float velocidad;
 
+    public int numPlayer = 1;
     bool trabajolavadora = false;
     public Image tarealavadora;
     float actividadlavadora = 0;
@@ -19,8 +20,8 @@ public class Movimiento : MonoBehaviour {
     void Update()
     {
 
-        transform.Translate(Vector2.right * Input.GetAxis("Horizontal") * velocidad * Time.deltaTime);
-        transform.Translate(Vector2.up * Input.GetAxis("Vertical") * velocidad * Time.deltaTime);
+        transform.Translate(Vector2.right * Input.GetAxis("Horizontal-p"+numPlayer) * velocidad * Time.deltaTime);
+        transform.Translate(Vector2.up * Input.GetAxis("Vertical-p"+numPlayer) * velocidad * Time.deltaTime);
 
         if (transform.position.x < -7.312342f)
         {
@@ -42,27 +43,27 @@ public class Movimiento : MonoBehaviour {
             transform.position = (new Vector2(transform.position.x, -3.535445f));
         }
 
-        if (Input.GetAxis("Horizontal") > 0)
+        if (Input.GetAxis("Horizontal-p"+numPlayer) > 0)
         {
             transform.localScale = new Vector3(-0.5011851f, 1.262527f, 1f);
         }
 
 
-        if (Input.GetAxis("Horizontal") < 0)
+        if (Input.GetAxis("Horizontal-p"+numPlayer) < 0)
         {
             transform.localScale = new Vector3(0.5011851f, 1.262527f, 1f);
         }
 
         if (trabajolavadora == true)
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("Fire1-p"+numPlayer))
             {
                 actividadlavadora = actividadlavadora + 0.01f;
                 tarealavadora.fillAmount = actividadlavadora;
             }
     
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Fire1-p"+numPlayer))
         {
             if (this.GetComponentInChildren<ObjetoLlevable>() != null)
             {
@@ -71,13 +72,13 @@ public class Movimiento : MonoBehaviour {
                 objetoSujetado = null;
                
             }
-            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && Input.GetAxis("Horizontal") < 0)
+            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && Input.GetAxis("Horizontal-p"+numPlayer) < 0)
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
                 objetoSujetado.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.5f, - 1);
             }
-            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && Input.GetAxis("Horizontal") > 0)
+            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && Input.GetAxis("Horizontal-p"+numPlayer) > 0)
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
