@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 5757423101413860271}
   - component: {fileID: 5757423101413860240}
   - component: {fileID: 8465239305140656759}
-  - component: {fileID: 352671651}
   m_Layer: 0
   m_Name: Ropa
   m_TagString: objetocogible
@@ -198,15 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1076d86b69660f4085de12c0a0cc8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &352671651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5757423101413860241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1076d86b69660f4085de12c0a0cc8b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  maxTrans: 2
+  transformaciones: 0
+  completado: 0
