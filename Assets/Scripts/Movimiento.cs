@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class Movimiento : MonoBehaviour {
 
     public float velocidad;
-    bool trabajonevera = false;
-    bool trabajococina = false;
-    public Image tareanevera;
-    public Image tareacocina;  
-    float actividadnevera = 0;
-    float actividadcocina;
+    bool trabajolavadora = false;    
+    public Image tarealavadora;     
+    float actividadlavadora = 0;
+    
 
     
 
@@ -51,34 +49,30 @@ public class Movimiento : MonoBehaviour {
             transform.position = (new Vector2(transform.position.x, -4.8f));
         }
 
-        if (trabajonevera == true)
+        if (trabajolavadora == true)
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                actividadnevera = actividadnevera + 0.01f;
-                tareanevera.fillAmount = actividadnevera;
+                actividadlavadora = actividadlavadora + 0.01f;
+                tarealavadora.fillAmount = actividadlavadora;
             }
         }
 
-        if (trabajococina == true)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                actividadcocina = actividadcocina + 0.01f;
-                tareacocina.fillAmount = actividadnevera;
-            }
-        }
+       
 
 
     }
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "cocina")
+
+        if (col.tag == "lavadora")
         {
-            trabajococina = true;
-            tareacocina.fillAmount = actividadcocina;
+            trabajolavadora = true;
+            tarealavadora.fillAmount = actividadlavadora;
         }
+
+        
     }
 
 
