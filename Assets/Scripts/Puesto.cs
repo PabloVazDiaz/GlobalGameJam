@@ -7,12 +7,11 @@ public class Puesto : MonoBehaviour
 {
 
     public GameObject objetoTarea;
-    public Collider2D ZonaInteracción;
+    public Collider2D ZonaInteraccion;
     public int cantidad;
     public int puntosPorFinalizar;
 
-
-    private bool activado;
+    public bool activado;
     private int realizados;
    
 
@@ -32,7 +31,8 @@ public class Puesto : MonoBehaviour
     {
         for (int i = 0; i < cantidad; i++)
         {
-            Instantiate(objetoTarea, ZonaInteracción.transform);
+            Debug.Log($"{transform.TransformPoint(Vector3.zero)}");
+            Instantiate(objetoTarea,ZonaInteraccion.transform.TransformPoint(Vector3.zero),Quaternion.identity);
         }
         activado = true;
 

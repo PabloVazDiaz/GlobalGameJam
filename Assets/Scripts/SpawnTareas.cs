@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class GameManager : MonoBehaviour
+public class SpawnTareas : MonoBehaviour
 {
     public int EntreEventosTiempo;
     public List<Puesto> puestos;
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UltimoTiempo = Time.time;
     }
 
     // Update is called once per frame
@@ -20,8 +21,12 @@ public class GameManager : MonoBehaviour
     {
         if (Time.time - UltimoTiempo > EntreEventosTiempo)
         {
-            puestos[Random.Range(0, puestos.Count)].EmpezarTarea();
-            UltimoTiempo = Time.time;
+            if(puestos.Where(x => x.activado == false).Any())
+            {
+                puestos.Where(x => x.activado == false).ToList()[Random.Range(0, puestos.Where(x => x.activado == false).ToList().Count)].EmpezarTarea();
+                UltimoTiempo = Time.time;
+            }
+            
         }
     }
 }
