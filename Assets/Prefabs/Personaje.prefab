@@ -355,7 +355,7 @@ RectTransform:
   m_GameObject: {fileID: 8645932989254604413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.55806, y: 1.4058, z: 0.71}
+  m_LocalScale: {x: 0.3413753, y: 0.8599529, z: 0.71}
   m_Children:
   - {fileID: 1502572279}
   - {fileID: 104861726113484317}
@@ -386,7 +386,9 @@ MonoBehaviour:
   tarealavadora: {fileID: 0}
   personaje: {fileID: 8645932989254604413}
   contador: 0
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: d100dc2025b24ab4a8970b16a28e7f95, type: 3}
+  - {fileID: 21300000, guid: e836b1beb05f9b14187d4cbef2c65184, type: 3}
   spriterRender: {fileID: 1502572280}
 --- !u!70 &8645932989254604386
 CapsuleCollider2D:
@@ -401,9 +403,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.26903176, y: -0.4409229}
-  m_Size: {x: 0.92505145, y: 0.8206038}
-  m_Direction: 0
+  m_Offset: {x: 0.17694098, y: -0.47014585}
+  m_Size: {x: 2.582661, y: 0.871918}
+  m_Direction: 1
 --- !u!50 &8645932989254604391
 Rigidbody2D:
   serializedVersion: 4
