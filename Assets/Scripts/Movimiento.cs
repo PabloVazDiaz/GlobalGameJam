@@ -58,7 +58,7 @@ public class Movimiento : MonoBehaviour {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
                 objetoSujetado.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.5f, - 1);
-                StopAllCoroutines();
+                //StopAllCoroutines();
                 StartCoroutine(Bocadillo(2f, objetoSujetado.GetComponent<ObjetoLlevable>().targetSprite));
                 
             }
@@ -67,7 +67,7 @@ public class Movimiento : MonoBehaviour {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
                 objetoSujetado.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y - 0.5f, -1);
-                StopAllCoroutines();
+                //StopAllCoroutines();
                 StartCoroutine(Bocadillo(2f, objetoSujetado.GetComponent<ObjetoLlevable>().targetSprite));
             }
         }
@@ -94,7 +94,11 @@ public class Movimiento : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        objetoColisionado = collision.gameObject;    
+        if(collision.tag == "objetocogible")
+        {
+            objetoColisionado = collision.gameObject;
+        }
+              
     }
 
     private void OnTriggerExit2D(Collider2D collision)

@@ -38,7 +38,7 @@ public class SpawnTareas : MonoBehaviour
             }
             else
             {
-                GameOver();
+                //GameOver();
             }
             
         }

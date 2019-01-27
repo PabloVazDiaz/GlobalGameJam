@@ -17,7 +17,7 @@ public class ObjetoLlevable : MonoBehaviour
     void Start()
     {
         transformaciones = 0;
-        completado = false;
+        //completado = false;
     }
 
     // Update is called once per frame

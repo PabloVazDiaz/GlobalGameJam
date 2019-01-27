@@ -11,6 +11,7 @@ public class PuestoTransformacion : Puesto
     public int EntreEventosTiempo;
     public bool automatico;
     public Sprite transformSprite;
+    public bool falsoPuesto;
 
     private float UltimoTiempo;
     private ObjetoLlevable go;
@@ -86,7 +87,25 @@ public class PuestoTransformacion : Puesto
                 }
             }
         }
-	    
+	    if(falsoPuesto && activado)
+        {
+            if (Input.GetButtonDown($"Fire2-p" + mov.numPlayer))
+            {
+                barra.fillAmount += cantidadPorClick;
+                if (barra.fillAmount >= 1)
+                {
+                    realizados++;
+                    if (realizados >= cantidad)
+                    {
+                        activado = false;
+                        realizados = 0;
+                    }
+                    transform.Find("cerrado").gameObject.SetActive(true);
+                    transform.Find("abierto").gameObject.SetActive(false);
+                    barra.fillAmount = 0;
+                }
+            }
+        }
     }
 
     override public void RecibirObjeto( ObjetoLlevable objLlevable)

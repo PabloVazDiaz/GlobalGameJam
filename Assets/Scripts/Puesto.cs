@@ -7,7 +7,7 @@ public class Puesto : MonoBehaviour
 {
 
     public GameObject objetoTarea;
-    public Collider2D ZonaInteraccion;
+    public GameObject ZonaInteraccion;
     public int cantidad;
     public int puntosPorFinalizar;
     private ObjetoLlevable go;
@@ -34,7 +34,11 @@ public class Puesto : MonoBehaviour
         for (int i = 0; i < cantidad; i++)
         {
             Debug.Log($"{transform.TransformPoint(Vector3.zero)}");
-            Instantiate(objetoTarea,ZonaInteraccion.transform.TransformPoint(Vector3.zero),Quaternion.identity);
+            if (objetoTarea != null)
+            {
+                Instantiate(objetoTarea, ZonaInteraccion.transform.TransformPoint(Vector3.zero), Quaternion.identity);
+            }
+            
         }
         activado = true;
         transform.Find("cerrado").gameObject.SetActive(false);
