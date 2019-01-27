@@ -38,12 +38,13 @@ public class SpawnTareas : MonoBehaviour
             }
             else
             {
-                //GameOver();
+                GameOver();
             }
             
         }
         if (UIController.win)
         {
+
             Debug.Log("Has ganado");
         }
     }
