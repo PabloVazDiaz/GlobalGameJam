@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using UnityEngine.SceneManagement;
 
 public class SpawnTareas : MonoBehaviour
 {
@@ -50,5 +51,11 @@ public class SpawnTareas : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("Has perdido");
+        
+        
+        SceneManager.LoadScene(2);
+        
     }
+
+    
 }

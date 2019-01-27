@@ -32,47 +32,17 @@ public class Movimiento : MonoBehaviour {
         xMovement = Input.GetAxis($"Horizontal-p{numPlayer}");
         yMovement = Input.GetAxis($"Vertical-p{numPlayer}");
 
-        //transform.Translate(Vector2.right * Input.GetAxis("Horizontal-p"+numPlayer) * velocidad * Time.deltaTime);
-        //transform.Translate(Vector2.up * Input.GetAxis("Vertical-p"+numPlayer) * velocidad * Time.deltaTime);
 
-        /*if (transform.position.x < -7.312342f)
-        {
-            transform.position = (new Vector3(-7.312342f, transform.position.y,-0.5f));
-        }
-
-        if (transform.position.x > 7.312342f)
-        {
-            transform.position = (new Vector3(7.312342f, transform.position.y,-0.5f));
-        }
-
-        if (transform.position.y > 3.422362f)
-        {
-            transform.position = (new Vector3(transform.position.x, 3.422362f, -0.5f));
-        }
-
-        if (transform.position.y < -3.535445f)
-        {
-            transform.position = (new Vector2(transform.position.x, -3.535445f));
-        }
-        */
         if (Input.GetAxis("Horizontal-p"+numPlayer) > 0)
         {
-            transform.localScale = new Vector3(-0.5011851f, 1.262527f, 1f);
+            transform.localScale = new Vector3(-0.3413753f, 0.8599529f, 1f);
         }
 
 
         if (Input.GetAxis("Horizontal-p"+numPlayer) < 0)
         {
-            transform.localScale = new Vector3(0.5011851f, 1.262527f, 1f);
+            transform.localScale = new Vector3(0.3413753f, 0.8599529f, 1f);
         }
-        /*
-        if (trabajolavadora == true)
-
-            if (Input.GetButtonDown("Fire1-p"+numPlayer))
-            {
-                actividadlavadora = actividadlavadora + 0.01f;
-                tarealavadora.fillAmount = actividadlavadora;
-            }*/
     
         if (Input.GetButtonDown("Fire1-p"+numPlayer))
         {
@@ -124,7 +94,7 @@ public class Movimiento : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        objetoColisionado = collision.gameObject;
+        objetoColisionado = collision.gameObject;    
     }
 
     private void OnTriggerExit2D(Collider2D collision)
