@@ -36,6 +36,7 @@ public class PuestoTransformacion : Puesto
             activado = false;
             go.gameObject.SetActive(true);
             go = null;
+            barra.fillAmount = 0;
         }
         
     }
