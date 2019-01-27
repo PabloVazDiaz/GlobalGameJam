@@ -33,6 +33,8 @@ public class PuestoTransformacion : Puesto
         }
         if (Time.time - UltimoTiempo > EntreEventosTiempo && activado && automatico)
         {
+            transform.Find("cerrado").gameObject.SetActive(false);
+            transform.Find("abierto").gameObject.SetActive(true);
             activado = false;
             go.gameObject.SetActive(true);
             go = null;
@@ -73,6 +75,9 @@ public class PuestoTransformacion : Puesto
                 barra.fillAmount += cantidadPorClick;
                 if (barra.fillAmount >= 1)
                 {
+
+                    transform.Find("cerrado").gameObject.SetActive(false);
+                    transform.Find("abierto").gameObject.SetActive(true);
                     activado = false;
                     go.gameObject.SetActive(true);
                     go = null;
@@ -85,6 +90,8 @@ public class PuestoTransformacion : Puesto
 
     override public void RecibirObjeto( ObjetoLlevable objLlevable)
     {
+        transform.Find("cerrado").gameObject.SetActive(true);
+        transform.Find("abierto").gameObject.SetActive(false);
         activado = true;
         objLlevable.Transformar();
         UltimoTiempo = Time.time;
