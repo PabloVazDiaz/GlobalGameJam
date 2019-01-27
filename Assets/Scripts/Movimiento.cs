@@ -6,16 +6,13 @@ using UnityEngine.UI;
 public class Movimiento : MonoBehaviour {
 
     public float velocidad;
-
+    public Canvas playerCanvas;
+    public Image showSprite;
     public int numPlayer = 1;
-    bool trabajolavadora = false;
     public Image tarealavadora;
-    float actividadlavadora = 0;
     private GameObject objetoColisionado;
     private GameObject objetoSujetado;
     public GameObject personaje;
-    bool sujetar = false;
-    bool hijo = false;
     public float contador;
     private Rigidbody2D rb;
     private float xMovement;
@@ -91,12 +88,17 @@ public class Movimiento : MonoBehaviour {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
                 objetoSujetado.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.5f, - 1);
+                StopAllCoroutines();
+                StartCoroutine(Bocadillo(2f, objetoSujetado.GetComponent<ObjetoLlevable>().targetSprite));
+                
             }
             if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && transform.localScale.x < 0)
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
                 objetoSujetado.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y - 0.5f, -1);
+                StopAllCoroutines();
+                StartCoroutine(Bocadillo(2f, objetoSujetado.GetComponent<ObjetoLlevable>().targetSprite));
             }
         }
     }
@@ -107,6 +109,18 @@ public class Movimiento : MonoBehaviour {
         rb.MovePosition(rb.position + movement);
         
     }
+
+    IEnumerator Bocadillo(float seconds, Sprite sprite)
+    {
+        Image image= playerCanvas.GetComponentInChildren<Image>();
+        image.sprite = sprite;
+        playerCanvas.enabled = !playerCanvas.enabled;
+        yield return new WaitForSeconds(seconds);
+        playerCanvas.enabled = !playerCanvas.enabled;
+
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

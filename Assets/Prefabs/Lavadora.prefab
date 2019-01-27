@@ -362,6 +362,7 @@ MonoBehaviour:
   ZonaInteraccion: {fileID: 0}
   cantidad: 0
   puntosPorFinalizar: 0
+  uiController: {fileID: 0}
   activado: 0
   realizados: 0
   maxPower: 0
@@ -369,6 +370,7 @@ MonoBehaviour:
   barra: {fileID: 1664276287326845423}
   EntreEventosTiempo: 3
   automatico: 1
+  transformSprite: {fileID: 21300000, guid: ef4b7f6c0c037424cb37fed85cca38b7, type: 3}
   cantidadPorClick: 0
 --- !u!61 &1664276287795799130
 BoxCollider2D:

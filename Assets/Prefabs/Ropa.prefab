@@ -198,5 +198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTrans: 2
+  targetSprite: {fileID: 21300000, guid: f5dca141dc829d2498702ac3a20a0214, type: 3}
   transformaciones: 0
   completado: 0

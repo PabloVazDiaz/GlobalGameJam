@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjetoLlevable : MonoBehaviour
 {
 
     public int maxTrans;
-
+    public Sprite targetSprite; 
     public int transformaciones;
     public bool completado;
 
@@ -24,11 +25,10 @@ public class ObjetoLlevable : MonoBehaviour
     }
 
 
-    public void Transformar()
+    public void Transformar(Sprite transfSprite)
     {
-        Debug.Log($"{transformaciones}");
         transformaciones++;
-        
+        targetSprite = transfSprite;
         if (transformaciones >= maxTrans)
         {
 

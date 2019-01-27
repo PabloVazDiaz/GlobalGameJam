@@ -10,6 +10,7 @@ public class PuestoTransformacion : Puesto
     public Image barra;
     public int EntreEventosTiempo;
     public bool automatico;
+    public Sprite transformSprite;
 
     private float UltimoTiempo;
     private ObjetoLlevable go;
@@ -86,7 +87,7 @@ public class PuestoTransformacion : Puesto
     override public void RecibirObjeto( ObjetoLlevable objLlevable)
     {
         activado = true;
-        objLlevable.Transformar();
+        objLlevable.Transformar(transformSprite);
         UltimoTiempo = Time.time;
     }
 
