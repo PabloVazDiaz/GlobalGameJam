@@ -105,7 +105,7 @@ public class Movimiento : MonoBehaviour {
     {
         if (collision.tag == "objetocogible")
         {
-            objetoColisionado = collision.gameObject;
+            objetoColisionado = null;
         }
             
     }
