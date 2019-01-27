@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 960640943}
-  timeLeft: 120
+  timeLeft: 10
   clock: {fileID: 2067465710}
   slider: {fileID: 338909751}
   win: 0
