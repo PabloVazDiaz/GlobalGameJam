@@ -386,7 +386,12 @@ MonoBehaviour:
   tarealavadora: {fileID: 0}
   personaje: {fileID: 8645932989254604413}
   contador: 0
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: c68dc3fdd0311ba49b6287a60689e971, type: 3}
+  - {fileID: 21300000, guid: 972e462d2a87f98438873bcffd4d7e19, type: 3}
+  - {fileID: 21300000, guid: 6405bb6c1a97f3146ae90dc8e78b4121, type: 3}
+  - {fileID: 21300000, guid: 4cb69b2e2c46f09418d1b3407f1c79d9, type: 3}
+  - {fileID: 21300000, guid: 93fc320e94cee80439a7438c74361cb2, type: 3}
   spriterRender: {fileID: 1502572280}
 --- !u!70 &8645932989254604386
 CapsuleCollider2D:
