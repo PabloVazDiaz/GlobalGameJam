@@ -9,6 +9,9 @@ TagManager:
   - lavadora
   - objetocogible
   - muro
+  - botonjugar
+  - botonsalirmenu
+  - botonsalirjuego
   layers:
   - Default
   - TransparentFX

@@ -35,13 +35,13 @@ public class Movimiento : MonoBehaviour {
 
         if (Input.GetAxis("Horizontal-p"+numPlayer) > 0)
         {
-            transform.localScale = new Vector3(-0.3413753f, 0.8599529f, 1f);
+            transform.localScale = new Vector3(-0.3413753f, 0.8599529f, 20f);
         }
 
 
         if (Input.GetAxis("Horizontal-p"+numPlayer) < 0)
         {
-            transform.localScale = new Vector3(0.3413753f, 0.8599529f, 1f);
+            transform.localScale = new Vector3(0.3413753f, 0.8599529f, 20f);
         }
     
         if (Input.GetButtonDown("Fire1-p"+numPlayer))
@@ -82,12 +82,12 @@ public class Movimiento : MonoBehaviour {
 
     IEnumerator Bocadillo(float seconds, Sprite sprite)
     {
-        Image image= playerCanvas.GetComponentInChildren<Image>();
+        Image[] images= playerCanvas.GetComponentsInChildren<Image>();
+        Image image = images[1];
         image.sprite = sprite;
         playerCanvas.enabled = !playerCanvas.enabled;
         yield return new WaitForSeconds(seconds);
         playerCanvas.enabled = !playerCanvas.enabled;
-
     }
 
 
