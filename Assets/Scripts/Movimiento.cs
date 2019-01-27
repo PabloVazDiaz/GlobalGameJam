@@ -35,13 +35,13 @@ public class Movimiento : MonoBehaviour {
 
         if (Input.GetAxis("Horizontal-p"+numPlayer) > 0)
         {
-            transform.localScale = new Vector3(-0.3413753f, 0.8599529f, 20f);
+            transform.localScale = new Vector3(-0.3413753f, 0.8599529f, -5f);
         }
 
 
         if (Input.GetAxis("Horizontal-p"+numPlayer) < 0)
         {
-            transform.localScale = new Vector3(0.3413753f, 0.8599529f, 20f);
+            transform.localScale = new Vector3(0.3413753f, 0.8599529f, -5f);
         }
     
         if (Input.GetButtonDown("Fire1-p"+numPlayer))
@@ -53,11 +53,11 @@ public class Movimiento : MonoBehaviour {
                 objetoSujetado = null;
                
             }
-            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && transform.localScale.x > 0)
+            if (objetoColisionado != null && objetoColisionado.tag == "objetocogible" && transform.localScale.x >= 0)
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
-                objetoSujetado.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.5f, - 1);
+                objetoSujetado.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y - 0.25f, - 1);
                 //StopAllCoroutines();
                 StartCoroutine(Bocadillo(2f, objetoSujetado.GetComponent<ObjetoLlevable>().targetSprite));
                 
@@ -66,7 +66,7 @@ public class Movimiento : MonoBehaviour {
             {
                 objetoSujetado = objetoColisionado;
                 objetoSujetado.transform.parent = transform;
-                objetoSujetado.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y - 0.5f, -1);
+                objetoSujetado.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y - 0.25f, -1);
                 //StopAllCoroutines();
                 StartCoroutine(Bocadillo(2f, objetoSujetado.GetComponent<ObjetoLlevable>().targetSprite));
             }
@@ -103,7 +103,11 @@ public class Movimiento : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        objetoColisionado = null;
+        if (collision.tag == "objetocogible")
+        {
+            objetoColisionado = collision.gameObject;
+        }
+            
     }
 
 }

@@ -439,9 +439,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objetoTarea: {fileID: 5757423101413860241, guid: 6335f304807e775428b1e472f9828dc3,
     type: 3}
-  ZonaInteraccion: {fileID: 3811543819896547057}
+  ZonaInteraccion: {fileID: 1433231626665592556}
   cantidad: 3
   puntosPorFinalizar: 0
+  uiController: {fileID: 0}
   activado: 0
   realizados: 0
 --- !u!61 &2108416461061468649
