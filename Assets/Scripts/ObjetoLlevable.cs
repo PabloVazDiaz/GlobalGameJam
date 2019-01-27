@@ -30,7 +30,7 @@ public class ObjetoLlevable : MonoBehaviour
     public void Transformar(Sprite transfSprite)
     {
         transformaciones++;
-
+        targetSprite = transfSprite;
         for(int i = 0; i < spritesTransformaciones.Length; i++)
         {
             if(i != transformaciones)
