@@ -103,10 +103,9 @@ public class Movimiento : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "objetocogible")
-        {
-            objetoColisionado = collision.gameObject;
-        }
+        
+        objetoColisionado = null;
+        
             
     }
 
