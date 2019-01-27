@@ -10,6 +10,8 @@ public class ObjetoLlevable : MonoBehaviour
     public int transformaciones;
     public bool completado;
 
+    public GameObject[] spritesTransformaciones;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,18 @@ public class ObjetoLlevable : MonoBehaviour
     {
         Debug.Log($"{transformaciones}");
         transformaciones++;
+
+        for(int i = 0; i < spritesTransformaciones.Length; i++)
+        {
+            if(i != transformaciones)
+            {
+                spritesTransformaciones[i].SetActive(false);
+            }
+            else
+            {
+                spritesTransformaciones[i].SetActive(true);
+            }
+        }
         
         if (transformaciones >= maxTrans)
         {

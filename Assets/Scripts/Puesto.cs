@@ -36,6 +36,8 @@ public class Puesto : MonoBehaviour
             Instantiate(objetoTarea,ZonaInteraccion.transform.TransformPoint(Vector3.zero),Quaternion.identity);
         }
         activado = true;
+        transform.Find("cerrado").gameObject.SetActive(false);
+        transform.Find("abierto").gameObject.SetActive(true);
 
     }
 
@@ -76,6 +78,8 @@ public class Puesto : MonoBehaviour
         if (realizados >= cantidad)
         {
             activado = false;
+            transform.Find("cerrado").gameObject.SetActive(true);
+            transform.Find("abierto").gameObject.SetActive(false);
         }
     }
 
