@@ -82,12 +82,12 @@ public class Movimiento : MonoBehaviour {
 
     IEnumerator Bocadillo(float seconds, Sprite sprite)
     {
-        Image image= playerCanvas.GetComponentInChildren<Image>();
+        Image[] images= playerCanvas.GetComponentsInChildren<Image>();
+        Image image = images[1];
         image.sprite = sprite;
         playerCanvas.enabled = !playerCanvas.enabled;
         yield return new WaitForSeconds(seconds);
         playerCanvas.enabled = !playerCanvas.enabled;
-
     }
 
 
