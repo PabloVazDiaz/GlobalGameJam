@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escenas/Pantalla muerte.unity
     guid: f55c84eb4fe5f3e4cbf81f4660dfae73
+  - enabled: 1
+    path: Assets/Escenas/ganado.unity
+    guid: d3a5884febf5fb249afd090af3589235
   m_configObjects: {}

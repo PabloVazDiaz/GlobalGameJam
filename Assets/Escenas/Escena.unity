@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720b9c23c26c6554c9324c624639c506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 960640943}
+  text: {fileID: 768471485}
   timeLeft: 10
   clock: {fileID: 2067465710}
   slider: {fileID: 338909751}
@@ -481,6 +481,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a48a1a2bb94383408f22a0d10b89cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &768471485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6076672429335205694, guid: cd0854a74a57c8f48b0ea4708db7fe53,
+    type: 3}
+  m_PrefabInstance: {fileID: 7869002746000791260}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &880612253
@@ -808,7 +820,7 @@ PrefabInstance:
     - target: {fileID: 7356285233019339524, guid: 7d151363973389548ba8ec1665796b8d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3413753
+      value: -0.3413753
       objectReference: {fileID: 0}
     - target: {fileID: 7356285233019339524, guid: 7d151363973389548ba8ec1665796b8d,
         type: 3}
@@ -1999,6 +2011,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2937760382543022098, guid: 16aa2d59a01815747929457e61072403,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937760382543022098, guid: 16aa2d59a01815747929457e61072403,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.7092211
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937760382543022098, guid: 16aa2d59a01815747929457e61072403,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.4764596
+      objectReference: {fileID: 0}
     - target: {fileID: 2937760382543022109, guid: 16aa2d59a01815747929457e61072403,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2053,21 +2080,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937760382543022098, guid: 16aa2d59a01815747929457e61072403,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.7830189
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937760382543022098, guid: 16aa2d59a01815747929457e61072403,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.7092211
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937760382543022098, guid: 16aa2d59a01815747929457e61072403,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.4764596
       objectReference: {fileID: 0}
     - target: {fileID: 2937760382543022097, guid: 16aa2d59a01815747929457e61072403,
         type: 3}
@@ -3569,6 +3581,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7869002745813422898, guid: cd0854a74a57c8f48b0ea4708db7fe53,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7869002745670578388, guid: cd0854a74a57c8f48b0ea4708db7fe53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3693,11 +3710,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7869002745813422898, guid: cd0854a74a57c8f48b0ea4708db7fe53,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7560083358376020277, guid: cd0854a74a57c8f48b0ea4708db7fe53,
         type: 3}
@@ -4000,7 +4012,7 @@ PrefabInstance:
     - target: {fileID: 7356285233019339524, guid: 7d151363973389548ba8ec1665796b8d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3413753
+      value: -0.3413753
       objectReference: {fileID: 0}
     - target: {fileID: 7356285233019339524, guid: 7d151363973389548ba8ec1665796b8d,
         type: 3}
