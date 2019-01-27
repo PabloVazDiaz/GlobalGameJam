@@ -22,6 +22,10 @@ public class SpawnTareas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float puestoSinActivar = puestos.Where(x => !x.activado).ToList().Count;
+        LosePercent = (float)((puestos.Count - puestoSinActivar) / puestos.Count);
+        UIController.UpdateSlider(LosePercent);
+
         UIController.FillClock(Time.deltaTime/EntreEventosTiempo);
         if (Time.time - UltimoTiempo > EntreEventosTiempo)
         {
@@ -29,15 +33,17 @@ public class SpawnTareas : MonoBehaviour
             {
                 puestos.Where(x => x.activado == false).ToList()[UnityEngine.Random.Range(0, puestos.Where(x => x.activado == false).ToList().Count)].SoltarObjetos();
                 UltimoTiempo = Time.time;
-                float puestoSinActivar = puestos.Where(x => !x.activado).ToList().Count;
-                LosePercent =(float)((puestos.Count - puestoSinActivar) / puestos.Count);
-                UIController.UpdateSlider(LosePercent);
+                
             }
             else
             {
                 GameOver();
             }
             
+        }
+        if (UIController.win)
+        {
+            Debug.Log("Has ganado");
         }
     }
 

@@ -11,6 +11,7 @@ public class Puesto : MonoBehaviour
     public int cantidad;
     public int puntosPorFinalizar;
     private ObjetoLlevable go;
+    public UIController uiController;
 
     public bool activado;
     public int realizados;
@@ -76,6 +77,7 @@ public class Puesto : MonoBehaviour
         if (realizados >= cantidad)
         {
             activado = false;
+            realizados = 0;           
         }
     }
 
