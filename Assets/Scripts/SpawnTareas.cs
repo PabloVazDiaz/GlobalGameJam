@@ -44,7 +44,7 @@ public class SpawnTareas : MonoBehaviour
         }
         if (UIController.win)
         {
-
+            SceneManager.LoadScene(3);
             Debug.Log("Has ganado");
         }
     }

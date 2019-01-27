@@ -386,6 +386,8 @@ MonoBehaviour:
   tarealavadora: {fileID: 0}
   personaje: {fileID: 8645932989254604413}
   contador: 0
+  sprites: []
+  spriterRender: {fileID: 1502572280}
 --- !u!70 &8645932989254604386
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,12 +15,16 @@ public class Movimiento : MonoBehaviour {
     private GameObject objetoSujetado;
     public GameObject personaje;
     public float contador;
+    public Sprite[] sprites;
+    public SpriteRenderer spriterRender;
     private Rigidbody2D rb;
     private float xMovement;
     private float yMovement;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriterRender.sprite = sprites[Random.Range(0, sprites.Count())];
     }
 
     private void FixedUpdate()
