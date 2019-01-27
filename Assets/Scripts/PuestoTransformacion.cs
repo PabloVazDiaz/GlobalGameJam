@@ -43,9 +43,10 @@ public class PuestoTransformacion : Puesto
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        Movimiento mov = collision.gameObject.GetComponent<Movimiento>();
         if (collision.tag == "Player" && !activado) 
         {
-            Movimiento mov = collision.gameObject.GetComponent<Movimiento>();
+            
             if (Input.GetButtonDown("Fire2-p" + mov.numPlayer))
             {
                 
@@ -67,7 +68,7 @@ public class PuestoTransformacion : Puesto
         }
         if(collision.tag == "Player" && activado && !automatico)
         {
-            if (Input.GetButtonDown($"Fire1-p1"))
+            if (Input.GetButtonDown($"Fire2-p"+mov.numPlayer))
             {
                 barra.fillAmount += cantidadPorClick;
                 if (barra.fillAmount >= 1)
